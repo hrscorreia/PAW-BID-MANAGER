@@ -1,0 +1,121 @@
+doctype html
+html
+  head
+    link(rel='shortcut icon', href='http://localhost:3000/imagens/favicon.ico')
+    script(src='https://code.getmdl.io/1.3.0/material.min.js')
+    link(rel='stylesheet', href='http://localhost:3000/stylesheets/styleArtigo.css')
+    link(rel='stylesheet', href='https://code.getmdl.io/1.3.0/material.indigo-pink.min.css')
+    link(rel='stylesheet', href='http://localhost:3000/stylesheets/items.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    script(defer='defer', src='https://code.getmdl.io/1.3.0/material.min.js')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js')
+    script(src='http://localhost:3000/javascripts/modal.js')
+    script(src='http://localhost:3000/javascripts/deleteRequest.js')
+    script(src='http://localhost:3000/javascripts/loginScript.js')
+  body
+    // Uses a transparent header that draws on top of the layout's background
+    .demo-layout-transparent.mdl-layout.mdl-js-layout
+      header.mdl-layout__header.mdl-layout__header--transparent
+        .mdl-layout__header-row
+          // Title
+          span.mdl-layout-title Bid$
+          // Add spacer, to align navigation to the right
+          .mdl-layout-spacer
+          // Navigation
+          nav.mdl-navigation
+            a#myBtn Login/Registar
+      .mdl-layout__drawer
+        span.mdl-layout-title BIDS SITE
+        nav.mdl-navigation
+          a.mdl-navigation__link(href='') Categorias
+          a.mdl-navigation__link(href='') Leiloar Produto
+          a#myBtn.mdl-navigation__link Login/Registar
+      main.mdl-layout__content
+
+        if users.length == 0
+          h1= "Não tem utilizadores adicionados"
+        else
+          h1= 'USERS'
+        for user in users
+        
+          if user.isActive 
+            ul(class='users') 
+              
+              div(class='name')= "Nome do utilizador: "+  user.name
+              div(class='email')= "email: "+ user.email
+              div(class='password')="password: "+ user.password
+              div(class='isAdmin')= "adnmin: "+user.isAdmin
+              //vamos verificar se existe
+              div(class='isActive')= "ativo: "+ user.isActive        
+              div(hidden='true')= user.id
+              
+              div
+                form(action='/disable/' + user.id, method='POST')
+                  button(type='submit') Desativar
+              
+          else
+            ul(class='users_cancelled') 
+              div(class='name')= "Nome do produto: "+  user.name
+              div(class='email')= "email "+user.description
+              div(class='password')="Categoria do produto: "+ user.category
+              div(class='isAdmin')= "Lances do produto: "+user.bids
+              div(class='isActive')= "Iniciado a: "+user.createdOn
+
+              div="Ativo: NÃO"
+              div
+
+        if !items
+          h1= "Não tem artigos em leilao"
+        else
+          h1= 'ITEMS'
+          for item in items
+            
+            if item.cancelled == false
+              ul(class='items') 
+                
+                div(class='name')= "Nome do produto: "+  item.name
+                div(class='descricao')= "Descrição do produto: "+item.description
+                div(class='categoria')="Categoria do produto: "+ item.category
+                if(item.bids.length > 0)
+                  div()='Preco:  ' + item.bids[item.bids.length - 1].value/100 + "€"
+                else
+                  div()='Preco:  ' + item.minimum/100 + "€"
+                div(class='bids')= "Lances do produto: " 
+                ul
+                  for bid in item.bids
+                    li #{bid.value/100} EUR em #{bid.date} 
+                div(class='criado')= "Iniciado a: "+item.createdOn
+                div(class='expires')="Término do leilão: "+ item.expires
+                div(class='minimum')= "Valor inicial do leilão: "+item.minimum/100 + "€"
+                div(hidden='true')= item.id
+                div=userId
+                div
+                  form(action='/disable/' + item.id, method='POST')
+                      button(type='submit') Desativar
+                div
+                  img(class='image' src="http://localhost:3000/imagens/items/"+ item.images[0])
+                div
+                  a(href='/viewItem/' + item.id) VER ITEM
+
+    
+        
+        // The Modal
+        #myModal.modal
+          // Modal content
+          .modal-content
+            span.close ×
+            form(action='#')
+              .mdl-textfield.mdl-js-textfield
+                input#email.mdl-textfield__input(type='text')
+                label.mdl-textfield__label(for='sample1') Email...
+              br
+              .mdl-textfield.mdl-js-textfield
+                input#password.mdl-textfield__input(type='password')
+                label.mdl-textfield__label(for='sample1') Password...
+              button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(type='', onclick='login()')
+                i.material-icons.right send
+            .novoRegisto
+              br
+              h8
+                a(href='/register')  Ainda não está registado? Clique aqui!

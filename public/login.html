@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+    <link rel= "stylesheet" href="http://localhost:3000/stylesheets/style.css" />
+    <script defer="defer" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    
+  </head>
+      
+  <body>
+
+<form action="/login" method="post" id="login">
+    <div class="mdl-textfield mdl-js-textfield">
+      <input class="mdl-textfield__input" id="email" type="text" />
+      <label class="mdl-textfield__label" for="sample1">email...</label>
+    </div><br />
+    <div class="mdl-textfield mdl-js-textfield">
+      <input class="mdl-textfield__input" id="password" type="text" />
+      <label class="mdl-textfield__label" for="sample1">Password...</label>
+    </div>
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" type="button" onclick="
+      var formData = JSON.stringify({email: $('#email').val(), password: $('#password').val()});
+  
+      $.ajax({
+          type: 'POST',
+          url: '/login',
+          data: formData,
+          success:function(){
+            window.location.replace('/me')
+          },
+          dataType: 'json',
+          contentType : 'application/json'})"><i class="material-icons right">send</i></button>
+  </form>
+  </body>
+
+</html>

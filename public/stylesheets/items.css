@@ -1,0 +1,26 @@
+.items{
+border-style:solid;
+background-color: #ffffff9e;
+height: 35%;
+border-top: 1%;
+}
+
+.items_cancelled{
+    border-style:solid;
+    background-color: #ff0000b8;
+    height: 30%;
+    border-top: 1%;
+}
+
+.image{
+width: 200px;
+height: 150px;
+position: absolute6;
+    margin-left: 76%;
+    margin-top: -9.5%;
+}
+
+.SearchBar {
+    height: 30px;
+    width: 500px;
+}

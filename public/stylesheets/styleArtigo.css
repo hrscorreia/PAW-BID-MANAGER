@@ -1,0 +1,223 @@
+.demo-layout-transparent {
+    background: url('http://localhost:3000/imagens/work.jpg') center / cover;
+  }
+  .demo-layout-transparent .mdl-layout__header,
+  .demo-layout-transparent .mdl-layout__drawer-button {
+    /* This background is dark, so we set text to white. Use 87% black instead if
+       your background is light. */
+    color: white;
+  }
+
+
+ body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      padding-top: 100px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 30%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: rgba(255, 255, 255, 0.78);
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .conteudo-site {
+
+      margin: auto;
+      padding: 8px;
+
+      width: 80%;
+      height: 80%;
+      position: relative;
+
+    }
+
+    .conteudo-error {
+
+      margin: auto;
+      padding: 8px;
+
+      width: 80%;
+      height: 80%;
+      position: relative;
+      background-color: #00000057;
+
+    }
+
+    .titles-index {
+      color: rgb(0, 0, 0);
+
+
+      text-align: center;
+
+    }
+
+    .titles-index {
+      color: rgb(0, 0, 0);
+
+
+      text-align: left;
+
+    }
+
+    .frase-erro{
+      width: 80%;
+      padding-top: 12%;
+      padding-left: 10%;
+    }
+
+
+    .container {
+      position: relative;
+      width: 20%;
+    }
+
+
+    .image {
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+
+
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+
+    .container:hover .image {
+      opacity: 0.3;
+    }
+
+
+
+    .container:hover .middle {
+      opacity: 1;
+    }
+
+
+    .text {
+      background-color: black;
+      color: white;
+      font-size: 16px;
+      padding: 16px 32px;
+    }
+
+    .tecnologia {
+      position: absolute;
+      height: 37%;
+      width: 100%;
+
+    }
+
+    .automoveis {
+      position: absolute;
+      height: 37%;
+      width: 100%;
+      float:right;
+      margin-left: 25%;
+
+    }
+
+    .imoveis {
+      position: absolute;
+      height: 37%;
+      width: 100%;
+      float:right;
+      margin-left: 50%;
+
+    }
+
+    .antiguidades {
+      position: absolute;
+      height: 37%;
+      width: 100%;
+      float:right;
+      margin-left: 75%;
+
+    }
+
+    .livros {
+      position: absolute;
+      width: 100%;
+      margin-top: 22%;
+    }
+
+    .joalharia {
+      position: absolute;
+      width: 100%;
+      margin-top: 22%;
+      margin-left: 25%;
+    }
+
+    .arte {
+      position: absolute;
+      width: 100%;
+      margin-top: 22%;
+      margin-left: 50%;
+    }
+
+    .outros {
+      position: absolute;
+      width: 100%;
+      margin-top: 22%;
+      margin-left: 75%;
+    }
+
+
+    .dinossauro{
+      width: 50%;
+      border-bottom: 26%;
+      align-content: center;
+      
+    }
